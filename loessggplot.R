@@ -1,3 +1,4 @@
+# Please see the README file for a demonstration of this function
 loessggplot <- function(x, low = 0.1, high = 0.9, step = 0.01, title = "", ticks = 0.1){ 
   
   library(ggplot2) 
