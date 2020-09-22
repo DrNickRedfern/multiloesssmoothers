@@ -24,6 +24,6 @@ loessggplot(convict_13, low = 0.1, high = 0.9, step = 0.01, title = "Convict 13 
 ```
 which returns the following plot:
 
-![Time series of editing in Buster Keaton's Convict 13 (1920)](images/Convict_13.png){:height="50%" width="50%"}
+![Time series of editing in Buster Keaton's Convict 13 (1920)](Convict_13.png)
 
 The above plot can be used diagnostically for exploratory data analysis in order to decide which spans for the LOESS smoother are the most informative or for limiting the range of spans used for cross-validation to speed up the process of selecting the best span to describe the data.
