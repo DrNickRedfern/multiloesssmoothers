@@ -17,13 +17,13 @@ This function takes the following arguments:
 loessggplot <- function(x, low = 0.1, high = 0.9, step = 0.01, title = "", ticks = 0.1)
 ```
 
-To draw the plot using the shot length data for the Roscoe “Fatty” Arbuckle film *Backstage* (1919) using data from the [Buster Keaton dataset](https://computationalfilmanalysis.wordpress.com/2020/07/07/keaton-data-set/), we use the command:
+To draw the plot using the shot length data for the Buster Keaton film *Convict 13* (1920) using data from the [Buster Keaton dataset](https://computationalfilmanalysis.wordpress.com/2020/07/07/keaton-data-set/), we use the command:
 
 ```R
-loessggplot(backstage, low = 0.1, high = 0.9, step = 0.01, title = "Backstage (1919)", ticks = 0.1)
+loessggplot(convict_13, low = 0.1, high = 0.9, step = 0.01, title = "Convict 13 (1920)", ticks = 0.1)
 ```
 which returns the following plot:
 
-hold
+![Time series of editing in Buster Keaton's Convict 13 (1920)](loessggplot/images/Convict_13.png)
 
 The above plot can be used diagnostically for exploratory data analysis in order to decide which spans for the LOESS smoother are the most informative or for limiting the range of spans used for cross-validation to speed up the process of selecting the best span to describe the data.
