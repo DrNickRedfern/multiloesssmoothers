@@ -13,10 +13,6 @@ LOESS, or locally estimated scatterplot smoothing, is a nonparametric method for
 - ```title```: text added between "" is added to the plot as a title.
 - ```ticks```: specifies the distance between tick marks on the colour bar in the legend. The lower and upper limits of the colour bar are set by ```low``` and ```high```, respectively.
 
-```R
-loessggplot <- function(x, low = 0.1, high = 0.9, step = 0.01, title = "", ticks = 0.1)
-```
-
 To draw the plot using the shot length data for the Buster Keaton film *Convict 13* (1920) using data from the [Buster Keaton dataset](https://computationalfilmanalysis.wordpress.com/2020/07/07/keaton-data-set/), we use the command:
 
 ```R
