@@ -16,7 +16,7 @@ LOESS, or locally estimated scatterplot smoothing, is a nonparametric method for
 To draw the plot using the shot length data for the Buster Keaton film *Convict 13* (1920) using data from the [Buster Keaton dataset](https://computationalfilmanalysis.wordpress.com/2020/07/07/keaton-data-set/), we use the command:
 
 ```R
-loessggplot(convict_13, low = 0.1, high = 0.9, step = 0.01, title = "Convict 13 (1920)", ticks = 0.1)
+loessggplot(convict_13, low = 0.1, high = 0.9, step = 0.01, title = "Convict 13", ticks = 0.1)
 ```
 which returns the following plot:
 
