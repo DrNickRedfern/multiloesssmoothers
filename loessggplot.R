@@ -1,7 +1,23 @@
-# Please see the README file for a demonstration of this function
+#' loessggplot
+#'
+#' The loessggplot function fits a set of LOESS smoothers to the shot length data of a motion picture, 
+#' iterating over a range of spans specified by the user and plotting the result using ggplot2, 
+#' in order to identify the temporal structure of a film's editing without committing the analyst 
+#' to a particular level of smoothing before applying the function.
+#' 
+#' @param x a numeric vector of shot lengths 
+#' @param low the lower bound for the range of spans of the loess smoothers
+#' @param high the upper bound for the range of spans of the loess smoothers
+#' @param step the increment in the value of the span for each iteration
+#' @param title a title for the plot
+#' @param ticks control the spacing of the ticks on the guide between low and high
+#' 
+#' @return a plot of the range of loess smoothers
+#' 
+#' @import ggplot
+#' 
+#' @export
 loessggplot <- function(x, low = 0.1, high = 0.9, step = 0.01, title = "", ticks = 0.1){ 
-  
-  library(ggplot2) 
   
   n <- length(x) 
   t <- cumsum(x); t <- 100*t/max(t) # normalize the running time to percent
@@ -16,15 +32,13 @@ loessggplot <- function(x, low = 0.1, high = 0.9, step = 0.01, title = "", ticks
   
   p <- ggplot(data = df, aes(x = t, y = fit, group = sn, colour = sn))+ 
     geom_line() + 
-    geom_vline(xintercept = seq(25, 75, 25), colour="black", linetype = "longdash") + # add lines to mark quartiles of running time
-    theme_classic() +  # edit to change theme used by ggplot2
-    xlab("\nRunning time (%)") +  
-    ylab("Fitted values (s)\n") + 
-    ggtitle(title) + 
-    theme(plot.title = element_text(face = "bold")) + 
+    scale_x_continuous(name = "\nRunning time (%)", breaks = seq(0, 100, 10)) +
+    labs(title = title, y  = "Fitted values (s)\n") +
+    theme_minimal() +
+    theme(legend.position = "bottom",
+          plot.title = element_text(face = "bold")) + 
     guides(colour = guide_colourbar(barwidth = 20, barheight = 1, title.position = "top")) +  
-    theme(legend.position = "bottom") + 
     scale_colour_viridis_c(name = "Span", breaks = seq(low, high, ticks)) 
   
- return(p) 
+  return(p) 
 } 
