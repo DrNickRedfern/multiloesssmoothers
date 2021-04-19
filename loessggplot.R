@@ -14,7 +14,7 @@
 #' 
 #' @return a plot of the range of loess smoothers
 #' 
-#' @import ggplot
+#' @import ggplot2
 #' 
 #' @export
 loessggplot <- function(x, low = 0.1, high = 0.9, step = 0.01, title = "", ticks = 0.1){ 
