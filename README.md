@@ -1,4 +1,7 @@
-# loessggplot
+# Fitting multiple loess smoothers to motion picture shot length data
+This repository has functions for visual
+
+## R: loessggplot
 
 The ```loessggplot``` function fits a set of LOESS smoothers to the shot length data of a motion picture, iterating over a range of spans specified by the user and plotting the result using ```ggplot2```, in order to identify the temporal structure of a film's editing without committing the analyst to a particular level of smoothing before applying the function. 
 
@@ -23,3 +26,6 @@ which returns the following plot:
 ![Time series of editing in Buster Keaton's Convict 13 (1920)](images/convict_13.png)
 
 The above plot can be used diagnostically for exploratory data analysis in order to decide which spans for the LOESS smoother are the most informative or for limiting the range of spans used for cross-validation to speed up the process of selecting the best span to describe the data.
+
+## Julia: MultiLoessplot
+
