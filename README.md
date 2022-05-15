@@ -7,10 +7,10 @@ The functions available on this repository allow the analyst to identify the edi
 
 The resulting plot can be used diagnostically for exploratory data analysis in order to decide which spans for the LOESS smoother are the most informative or for limiting the range of spans used for cross-validation to speed up the process of selecting the best span to describe the data.
 
-Functions are available for the following languages: R and Julia (with others on the way!)
+Functions are available for the following languages: R, Julia, and Python (with others on the way!)
 
 ## R: loessggplot
-The ```loessggplot``` function fits and visualises multiple loess smoothers using ```ggplot2```.
+The ```loessggplot``` function fits and visualises multiple loess smoothers using ```ggplot2```. ```loessggplot``` wll remove `NA` values and calculate the shot timings.
 
 ```loessggplot``` takes the following arguments:
 
@@ -35,7 +35,7 @@ The ```MultiLoessPlot``` function fits and visualises multiple loess smoothers u
 
 ```MultiLoessPlot``` takes the following arguments:
 
-- ```df```: a data frame containing shot length data in wide format.
+- ```df```: a data frame containing shot length data in numeric order in wide format.
 - ```index```: the index of the data frame column containing the shot length data to be visulaised.
 - ```low```: the minimum loess span.
 - ```step```: the increment of the span of the loess smoothers.
@@ -46,7 +46,7 @@ To plot the result for *Convict 13*, we load the csv file for the film and selec
 
 ```Julia
 using CSV, DataFrames
-df = CSV.read("./path/to/file/file.csv", DataFrame; header=1)
+df = CSV.read("./path/to/file/data.csv", DataFrame; header=1)
 using ColorSchemes, Gadfly, Loess
 MultiLoessPlot(df; index=2, low=0.1, step=0.01, high=0.9, title="Convict 13")
 ```
@@ -56,3 +56,32 @@ which returns the following plot:
 <p align="center">
 <img src="images/julia_demo_plot.PNG" alt="Julia: Time series of editing in Buster Keaton's Convict 13 (1920)" width="538">
 </p>
+
+## Python: multiloessplot
+The ```multiloessplot``` function fits and visualises multiple loess smoothers using ```Seaborn```. 
+
+```multiloessplot``` has the following arguments:
+
+ - ```x```: a data frame in wide format containing shot length data in numeric order.
+ - ```index```: the index of the data column in the data frame to be plotted. **Note that the index is in Python format and begins at 0.**
+ - ```low```: the minimum value of the spans the loess smoothers.
+ - ```high```: the maximum value of the spans of the loess smoothers.
+ - ```step```: the increment in the span of the loess smoothers.
+ - ```tick_step```: specifies the distance between tick marks on the colour bar in the legend. The lower and upper limits of the colour bar are set by `low` and `high`, respectively.
+ - ```title```: a title for the plot.
+
+To plot the result for *Convict 13*, we load the csv file for the film and select the column containing the shot length data by its index. ```multiloessplot``` will remove `NA` values and calculate shot timings:
+
+```python
+import pandas as pd
+df = pd.read_csv('path/to/file/data.csv', delimiter=',')
+multiloessplot(df, index=2, low=0.1, high=0.9, step=0.01, tick_step = 0.1, title = "Convict 13")
+```
+
+which returns the following plot:
+
+<p align="center">
+<img src="images/convict_13_py.png" alt="python: Time series of editing in Buster Keaton's Convict 13 (1920)" width="538">
+</p>
+
+The loess fits in Python seem to be somewhat different from those of R and Julia.
