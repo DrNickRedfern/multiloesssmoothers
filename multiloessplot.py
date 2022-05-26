@@ -43,7 +43,7 @@ def multiloessplot(x, index=0, low=0.1, high=0.9, step=0.01, tick_step=0.1, titl
     from statsmodels.nonparametric.smoothers_lowess import lowess
     from matplotlib import cm, colorbar, colors
 
-    SL = df.iloc[:, index].dropna(axis=0, how='any')
+    SL = x.iloc[:, index].dropna(axis=0, how='any')
     times = np.cumsum(SL)
     times = 100 * (times/np.max(times))
 
