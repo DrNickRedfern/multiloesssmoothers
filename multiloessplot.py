@@ -32,7 +32,7 @@ def multiloessplot(x, index=0, low=0.1, high=0.9, step=0.01, tick_step=0.1, titl
     --------
     # Load a .csv file containing shot length data
     import pandas as pd
-    df = df = pd.read_csv('path/to/file/data.csv', delimiter=',')
+    df = pd.read_csv('path/to/file/data.csv', delimiter=',')
 
     multiloessplot(df, index=0, low=0.1, high=0.9, step=0.01, tick_step = 0.1, title = "Movie title")
     """
