@@ -85,3 +85,10 @@ which returns the following plot:
 </p>
 
 The loess fits in Python seem to be somewhat different from those of R and Julia.
+
+### multiloess: a streamlit for visualising shot length data
+I have created a streamlit app that takes the code for multiloessplot.py and automates the process of visualising shot length data if you don't want to interact with the code directly.
+
+You can access the app at: [multiloess](https://share.streamlit.io/drnickredfern/multiloess/main)
+
+The GitHub repository for the app is here: [DrNickRedfern/multiloess](https://github.com/DrNickRedfern/multiloess)
