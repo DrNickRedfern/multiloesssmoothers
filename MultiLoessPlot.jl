@@ -1,7 +1,7 @@
 """
     MultiLoessPlot(df; index, low, step, high, title)
 
-Fit multiple loes smoothers to motion picture shot length data and visualise the result.
+Fit multiple loess smoothers to motion picture shot length data and visualise the result.
 
 # Arguments:
 - `df`: a data frame containing shot length data in wide format.
